@@ -1,0 +1,39 @@
+{
+  "nominal": {
+    "policy": {
+      "success": 1.0,
+      "hold_rmse_m": 0.2264,
+      "reached_10cm": 0.0,
+      "reach_s": null,
+      "overshoot_m": 0.093,
+      "command_change": 0.024
+    },
+    "hold_controller": {
+      "success": 1.0,
+      "hold_rmse_m": 0.0373,
+      "reached_10cm": 1.0,
+      "reach_s": 3.98,
+      "overshoot_m": 0.035,
+      "command_change": 0.0138
+    }
+  },
+  "randomized": {
+    "policy": {
+      "success": 1.0,
+      "hold_rmse_m": 0.1985,
+      "reached_10cm": 0.04,
+      "reach_s": 8.95,
+      "overshoot_m": 0.068,
+      "command_change": 0.0585
+    },
+    "hold_controller": {
+      "success": 1.0,
+      "hold_rmse_m": 0.0424,
+      "reached_10cm": 1.0,
+      "reach_s": 4.08,
+      "overshoot_m": 0.043,
+      "command_change": 0.2049
+    }
+  },
+  "training_minutes": 25.9
+}

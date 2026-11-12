@@ -1,0 +1,16 @@
+{
+  "steps": 500000,
+  "seed": 4,
+  "n_envs": 4,
+  "gamma": 0.99,
+  "batch": 256,
+  "actor": [
+    64,
+    64
+  ],
+  "critic": [
+    256,
+    256
+  ],
+  "algorithm": "SAC (stable-baselines3)"
+}
