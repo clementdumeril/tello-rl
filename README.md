@@ -51,5 +51,18 @@ sbatch slurm/train_track.slurm                    # Savio: 10 seeds
 ```
 
 Each run writes `config.json`, `progress.csv`, `model.zip`, `actor.npz` (the actor as numpy arrays, for the flight
-node) and `evaluation.json`. `rl_paths.py` must stay identical to `src/tello_driver/tello_driver/rl_paths.py` in
-tello-balloon-hunter: the flight node builds its observation with it.
+node) and `evaluation.json`.
+
+## Fly a policy on the Tello
+
+The flight node is `ros/rl_hold.py` (a ROS 2 node using tello-balloon-hunter's driver, EKF and safety chain); it is
+kept here so that tello-balloon-hunter stays free of RL code. To fly, copy it and `rl_paths.py` into
+`tello-balloon-hunter/src/tello_driver/tello_driver/`, add `"tello_rl_hold = tello_driver.rl_hold:main"` to the
+`console_scripts` of its `setup.py`, rebuild, then:
+
+```bash
+ros2 run tello_driver tello_rl_hold --ros-args -p actor:=<path>/actor.npz
+```
+
+`rl_paths.py` builds the observation: the copy next to the flight node must stay identical to the one used for
+training.
